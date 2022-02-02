@@ -31,13 +31,11 @@ for i in range(100):
 
 def test_loop():
     # A method to stress test
-    glitcher = ImageGlitcher()
-    trip = 5
-    fmt = 'pngcount = 0
+    count = 0
     timesum = 0
     try:
         with open('Collections/imglog.txt', 'w') as logtxt:
-            while(trip):
+            while(1):
                 t0 = time()
                 level = choice(amount_list)
                 """
@@ -56,7 +54,6 @@ def test_loop():
                 logtxt.write(f'img_num: {count}, level: {level}\n')
                 count += 1
                 timesum += (t1 - t0)
-                trip = trip-1
                 print(f'Time taken: {t1 - t0}')
     except KeyboardInterrupt:
         print(f'Average time: {timesum / count}')
@@ -69,8 +66,7 @@ def test_image_to_image():
      We use glitch_level = 2 in this example
      You may change this to whatever you'd like
     """
-    glitcher = ImageGlitcher()
-    fmt = 'png
+
     # All default params(i.e color_offset = False, scan_lines = False)
     glitch_img = glitcher.glitch_image(f'test.{fmt}', 2)
     glitch_img.save(f'Collections/glitched_test_default.{fmt}')
@@ -112,8 +108,7 @@ def test_image_to_gif():
      i.e loop = 0
      You may change these to whatever you'd like
     """
-    glitcher = ImageGlitcher()
-    fmt = 'png
+
     DURATION = 200      # Set this to however many centiseconds each frame should be visible for
     LOOP = 0            # Set this to how many times the gif should loop
     # LOOP = 0 means infinite loop
@@ -239,8 +234,7 @@ def test_gif_to_gif():
      i.e loop = 0
      You may change these to whatever you'd like
     """
-    glitcher = ImageGlitcher()
-    fmt = 'png
+
     DURATION = 200      # Set this to however many centiseconds each frame should be visible for
     LOOP = 0            # Set this to how many times the gif should loop
     # LOOP = 0 means infinite loop
